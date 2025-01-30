@@ -1,133 +1,170 @@
-/* http://meyerweb.com/eric/tools/css/reset/
- * v2.0 | 20110126
- * License: none (public domain) */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block; }
-
-body {
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
 }
 
-ol, ul {
-  list-style: none; }
+html {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
 
-blockquote, q {
-  quotes: none; }
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color var(--duration) var(--timing),
+              color var(--duration) var(--timing);
+}
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: "";
-  content: none; }
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+:root {
+  --font-system: -apple-system, BlinkMacSystemFont, "proxima nova", "helvetica neue", helvetica, arial, sans-serif;
+  --space-1: clamp(0.75rem, 3vw, 1.5rem);
+  --font-size: clamp(1rem, 1.5vw, 1.125rem);
+  --radius: 2px;
+  
+  --width-content: 800px;
+  --width-page: min(90%, var(--width-content));
+  
+  --duration: 0.2s;
+  --timing: ease;
+  
+  --color-text: #000000;
+  --color-text-secondary: #555555;
+  --color-text-muted: #666666;
+  --color-link: blue;
+  --color-border: #c0c0c0;
+  --color-background: white;
+}
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "proxima nova", "helvetica neue", helvetica, arial, sans-serif;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--font-size);
 }
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 1.5em;
-  color: var(--text-primary);
+main {
+  width: var(--width-page);
+  margin: 0 auto;
+  padding: calc(var(--space-1) * 1.5) 0;
 }
 
-p {
-  margin-bottom: 1.5em;
+.site-header {
+  padding-bottom: var(--space-1);
+  border-bottom: 1px solid var(--color-border);
 }
 
-a {
-  color: var(--link-color);
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-a:hover {
-  opacity: 0.8;
-}
-
-#header {
-  width: 90%;
-  margin: 20px auto;
-  padding-bottom: 20px;
-  max-width: 800px;
-  border-bottom: 1px solid var(--border-color);
-}
-
-#header h1 {
+.site-header h1 {
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.iconlinks {
-  float: right;
-  font-size: .8em;
-  line-height: 24px;
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.875em;
 }
 
-#header h1 a {
+.social-links a {
+  color: var(--color-text-muted);
+  padding: 0.25rem;
+  transition: color 0.2s ease, transform 0.2s ease;
   text-decoration: none;
-  border-bottom: none;
-  color: var(--text-muted);
-  padding: 0 3px;
 }
 
-#bio {
-  width: 90%;
-  max-width: 800px;
-  margin: 0 auto 5% auto;
+.social-links a:hover {
+  color: var(--color-text);
+  transform: translateY(-1px);
 }
 
-#bio h2 {
-  font-weight: bold;
-  color: var(--text-primary);
+.social-links i {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
 }
 
-#bio p {
-  color: var(--text-secondary);
-  line-height: 1.5em;
+.bio {
+  margin-top: calc(var(--space-1) * 0.75);
+}
+
+.bio p {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.bio a {
+  color: var(--color-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: all var(--duration) var(--timing);
+}
+
+.bio a:hover,
+.bio a:focus-visible {
+  opacity: 0.8;
+  text-decoration-thickness: 2px;
+}
+
+.social-links a:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: var(--radius);
+  border-radius: var(--radius);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-primary: #ffffff;
-    --text-secondary: #dddddd;
-    --text-muted: #999999;
-    --link-color: #66b3ff;
-    --border-color: #333333;
-    --bg-primary: #121212;
+    --color-text: #ffffff;
+    --color-text-secondary: #dddddd;
+    --color-text-muted: #999999;
+    --color-link: #66b3ff;
+    --color-border: #333333;
+    --color-background: #121212;
   }
 }
 
-@media (max-width: 480px) {
-  #header, #bio {
-    width: 95%;
+@media print {
+  :root {
+    --color-text: black;
+    --color-text-secondary: #333;
+    --color-border: #666;
+    --color-background: white;
+  }
+  
+  body {
+    font-size: 12pt;
+  }
+  
+  .social-links {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
