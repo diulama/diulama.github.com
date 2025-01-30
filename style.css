@@ -21,7 +21,6 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline; }
 
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
@@ -46,51 +45,89 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* My Styles */
 body {
-  font-family: "proxima nova", "helvetica neue", helvetica, arial, sans-serif;
-  background: white; }
+  font-family: -apple-system, BlinkMacSystemFont, "proxima nova", "helvetica neue", helvetica, arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 h1 {
   font-size: 24px;
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  color: var(--text-primary);
+}
 
 p {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+}
 
 a {
-  color: blue;
-  text-decoration: none;}
+  color: var(--link-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
 
 #header {
   width: 90%;
   margin: 20px auto;
   padding-bottom: 20px;
   max-width: 800px;
-  border-bottom: 1px solid #c0c0c0; }
+  border-bottom: 1px solid var(--border-color);
+}
 
-  #header h1 {
-    font-weight: bold;
-    margin: 0; }
+#header h1 {
+  font-weight: bold;
+  margin: 0;
+}
 
-  .iconlinks {
-    float: right;
-    font-size: .8em;
-    line-height: 24px;}
+.iconlinks {
+  float: right;
+  font-size: .8em;
+  line-height: 24px;
+}
 
-    #header h1 a {
-        text-decoration: none;
-    border-bottom: none;
-      color: #666666;
-    padding: 0 3px;}
+#header h1 a {
+  text-decoration: none;
+  border-bottom: none;
+  color: var(--text-muted);
+  padding: 0 3px;
+}
 
 #bio {
   width: 90%;
   max-width: 800px;
-  margin: 0 auto 5% auto; }
-  #bio h2 {
-    font-weight: bold;
-    color: black; }
-  #bio p {
-    color: #555555;
-    line-height: 1.5em; }
+  margin: 0 auto 5% auto;
+}
+
+#bio h2 {
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+#bio p {
+  color: var(--text-secondary);
+  line-height: 1.5em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #ffffff;
+    --text-secondary: #dddddd;
+    --text-muted: #999999;
+    --link-color: #66b3ff;
+    --border-color: #333333;
+    --bg-primary: #121212;
+  }
+}
+
+@media (max-width: 480px) {
+  #header, #bio {
+    width: 95%;
+  }
+}
