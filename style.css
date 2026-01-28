@@ -1,48 +1,26 @@
+/* Base Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html {
-  -webkit-text-size-adjust: 100%;
-  tab-size: 4;
-}
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  transition: background-color var(--duration) var(--timing),
-              color var(--duration) var(--timing);
-}
-
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-
-input, button, textarea, select {
-  font: inherit;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
 :root {
-  --font-system: -apple-system, BlinkMacSystemFont, "proxima nova", "helvetica neue", helvetica, arial, sans-serif;
-  --space-1: clamp(0.75rem, 3vw, 1.5rem);
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, "proxima nova", "helvetica neue", helvetica, arial, sans-serif;
   --font-size: clamp(1rem, 1.5vw, 1.125rem);
-  --radius: 2px;
   
+  /* Spacing */
+  --space-1: clamp(0.75rem, 3vw, 1.5rem);
   --width-content: 800px;
   --width-page: min(90%, var(--width-content));
   
+  /* Styling */
+  --radius: 2px;
   --duration: 0.2s;
   --timing: ease;
   
+  /* Light theme colors */
   --color-text: #000000;
   --color-text-secondary: #555555;
   --color-text-muted: #666666;
@@ -51,11 +29,23 @@ p, h1, h2, h3, h4, h5, h6 {
   --color-background: white;
 }
 
+/* Base HTML elements */
+html {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "proxima nova", "helvetica neue", helvetica, arial, sans-serif;
+  font-family: var(--font-family);
   background: var(--color-background);
   color: var(--color-text);
   font-size: var(--font-size);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color var(--duration) var(--timing),
+              color var(--duration) var(--timing);
 }
 
 main {
@@ -64,6 +54,23 @@ main {
   padding: calc(var(--space-1) * 1.5) 0;
 }
 
+/* Media elements */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Form elements */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Typography */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* Site header */
 .site-header {
   padding-bottom: var(--space-1);
   border-bottom: 1px solid var(--color-border);
@@ -78,6 +85,7 @@ main {
   align-items: center;
 }
 
+/* Social links */
 .social-links {
   display: flex;
   gap: 0.75rem;
@@ -87,7 +95,8 @@ main {
 .social-links a {
   color: var(--color-text-muted);
   padding: 0.25rem;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color var(--duration) var(--timing), 
+              transform var(--duration) var(--timing);
   text-decoration: none;
 }
 
@@ -102,6 +111,13 @@ main {
   vertical-align: middle;
 }
 
+.social-links a:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: var(--radius);
+  border-radius: var(--radius);
+}
+
+/* Bio section */
 .bio {
   margin-top: calc(var(--space-1) * 0.75);
 }
@@ -124,12 +140,7 @@ main {
   text-decoration-thickness: 2px;
 }
 
-.social-links a:focus-visible {
-  outline: 2px solid var(--color-link);
-  outline-offset: var(--radius);
-  border-radius: var(--radius);
-}
-
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-text: #ffffff;
@@ -141,6 +152,7 @@ main {
   }
 }
 
+/* Print styles */
 @media print {
   :root {
     --color-text: black;
@@ -158,6 +170,7 @@ main {
   }
 }
 
+/* Accessibility - reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
