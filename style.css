@@ -116,6 +116,47 @@ p, h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius);
 }
 
+/* Projects section */
+.projects {
+  margin-top: calc(var(--space-1) * 1.25);
+}
+
+.projects h2 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: calc(var(--space-1) * 0.5);
+}
+
+.projects ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-1) * 0.4);
+}
+
+.projects a {
+  color: var(--color-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: all var(--duration) var(--timing);
+}
+
+.projects a:hover,
+.projects a:focus-visible {
+  opacity: 0.8;
+  text-decoration-thickness: 2px;
+}
+
+.project-note {
+  display: block;
+  color: var(--color-text-secondary);
+  font-size: 0.9375em;
+  line-height: 1.5;
+}
+
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
