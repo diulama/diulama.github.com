@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lifting tracker · Alex Yim</title>
+
+  <meta name="description" content="An iOS app that turns a workout plan, written as a plain note, into a one-tap logger.">
+  <meta property="og:title" content="Lifting tracker">
+  <meta property="og:description" content="An iOS app that turns a workout plan, written as a plain note, into a one-tap logger.">
+  <meta property="og:url" content="https://alexyim.org/projects/lifting-tracker/">
+  <meta property="og:image" content="https://alexyim.org/projects/lifting-tracker/poster.png">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <header class="site-header">
+      <h1><a class="home-link" href="/">Alex Yim</a></h1>
+    </header>
+
+    <article class="project-page">
+      <h2 class="project-title">Lifting tracker</h2>
+      <p class="project-tagline">An iOS app that turns a workout plan, written as a plain note, into a one-tap logger.</p>
+
+      <div class="project-hero">
+        <video class="device" src="demo.mp4" poster="poster.png" autoplay muted loop playsinline
+               aria-label="Screen recording: the plan note, then a full Upper A session logged and finished, then the journal."></video>
+
+        <div class="project-body">
+          <p>I write my program as a note, the way I would in any notes app:
+            <code>Bench press: 3 × 5–8</code>. The app reads the note and gives each day its own
+            logging screen. Nothing to set up, and no exercise database to search.</p>
+
+          <p>During a workout, every set already shows what I lifted last time. If nothing
+            changed, logging it is one tap. I type only the number that moved, and a new weight
+            carries down to the rest of the sets.</p>
+
+          <p>After a session, a journal lists every workout by date, and each exercise keeps
+            its own history.</p>
+
+          <h3>Choices</h3>
+          <ul>
+            <li>No rest timer and no time tracking. I time rest on my watch.</li>
+            <li>No start button and no modes. A day closes when I tap <strong>Finish</strong>, or when the date changes.</li>
+            <li>The app never rewrites the note. Everything it shows comes from the text as typed.</li>
+            <li>Data stays on the phone, so no screen waits on a signal at the gym.</li>
+          </ul>
+
+          <h3>Stack</h3>
+          <p>SwiftUI and SwiftData, iOS 17 and later. A Swift package holds the note parser and
+            the store, with unit tests, and XCUITest covers the screens. The recording on this
+            page comes from a UI test, so each build can reshoot it with one command.</p>
+        </div>
+      </div>
+
+      <h3 class="gallery-heading">Screens</h3>
+      <ul class="gallery">
+        <li><figure><img src="2-notepad.png" alt="The notepad, holding the four-day routine as plain text" loading="lazy" width="644" height="1400"><figcaption>The plan, as a note</figcaption></figure></li>
+        <li><figure><img src="1-days.png" alt="The days list, with Upper A next in the rotation" loading="lazy" width="644" height="1400"><figcaption>Days, next one first</figcaption></figure></li>
+        <li><figure><img src="3-logger.png" alt="The Upper A logger, with last week's weights shown on each set" loading="lazy" width="644" height="1400"><figcaption>Logging, one tap per set</figcaption></figure></li>
+        <li><figure><img src="4-summary.png" alt="The summary after finishing Upper A" loading="lazy" width="644" height="1400"><figcaption>Finished day</figcaption></figure></li>
+        <li><figure><img src="5-journal.png" alt="The journal, listing the week's sessions by date" loading="lazy" width="644" height="1400"><figcaption>Journal</figcaption></figure></li>
+      </ul>
+    </article>
+  </main>
+</body>
+</html>
