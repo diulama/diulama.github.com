@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>X bookmarks viewer · Alex Yim</title>
+
+  <meta name="description" content="A searchable, auto-tagged viewer for my X bookmarks, synced from my account.">
+  <meta property="og:title" content="X bookmarks viewer">
+  <meta property="og:description" content="A searchable, auto-tagged viewer for my X bookmarks, synced from my account.">
+  <meta property="og:url" content="https://alexyim.org/projects/x-bookmarks/">
+  <meta property="og:image" content="https://alexyim.org/projects/x-bookmarks/viewer.png">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/style.css?v=3">
+</head>
+<body>
+  <main>
+    <header class="site-header">
+      <h1><a class="home-link" href="/">Alex Yim</a></h1>
+    </header>
+
+    <article class="project-page">
+      <h2 class="project-title">X bookmarks viewer</h2>
+      <p class="project-tagline">A searchable, auto-tagged viewer for my X bookmarks, synced from my account.</p>
+
+      <figure class="screenshot">
+        <a href="viewer.png"><img src="viewer.png" width="2880" height="1800"
+             alt="The viewer filtered to the Ai Development folder, 399 bookmarks. A post card shows the post, a one-line summary, and its tags. The sidebar tag list is blurred."></a>
+        <figcaption>The Ai Development folder. The sidebar tag list is blurred for privacy. Select the image for full size.</figcaption>
+      </figure>
+
+      <div class="project-body">
+        <h3>The problem</h3>
+        <p>I'm a prolific X user, but going back through my saved bookmarks is a chore. X shows
+          them as one long feed with no real search. I used pro.x.com for a while, and even
+          there the UI falls short.</p>
+
+        <h3>What I built</h3>
+        <p>My own bookmarks viewer, synced from my X account. It holds about 6,200 bookmarks,
+          and I can search all of them at once: the post text, a one-line summary of each post,
+          and its tags.</p>
+        <ul>
+          <li>Search, then narrow by folder, tag, author, kind of post (thread, tool, paper, and
+            so on), or date range. The filters live in the URL, so any view is a link.</li>
+          <li>A light LLM, Claude Haiku, reads each new bookmark on sync. It writes the summary,
+            picks tags from a fixed vocabulary, and labels the kind of post.</li>
+          <li>A sync pulls new bookmarks and my X folders, and drops the ones I've removed.</li>
+          <li>An MCP server gives Claude Code the same library, so an agent can search my
+            bookmarks or write a digest of a topic.</li>
+        </ul>
+
+        <h3>Stack</h3>
+        <p>Bun and TypeScript, with SQLite and its FTS5 full-text search. The viewer is one
+          HTML page on a small local JSON API. A CLI, <code>xbm</code>, runs the sync, the
+          tagging, and the server.</p>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

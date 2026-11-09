@@ -196,7 +196,8 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .project-body p + p,
 .project-body h3 + p,
-.project-body h3 + ul {
+.project-body h3 + ul,
+.project-body p + ul {
   margin-top: 0.75rem;
 }
 
@@ -221,6 +222,31 @@ p, h1, h2, h3, h4, h5, h6 {
   font-family: ui-monospace, "SF Mono", Menlo, monospace;
   font-size: 0.875em;
   white-space: nowrap;
+}
+
+.screenshot {
+  margin-top: calc(var(--space-1) * 1.25);
+}
+
+.screenshot img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+}
+
+.screenshot figcaption {
+  font-size: 0.8125em;
+  color: var(--color-text-muted);
+  margin-top: 0.4rem;
+}
+
+.screenshot + .project-body {
+  max-width: 640px;
+}
+
+.screenshot + .project-body h3:first-child {
+  margin-top: calc(var(--space-1) * 1.25);
 }
 
 .gallery {
