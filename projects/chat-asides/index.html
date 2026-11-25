@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Side threads · Alex Yim</title>
+
+  <meta name="description" content="Prototyping a new chat UI for side conversations: highlight part of a reply and ask about it in a side thread, without derailing the main chat.">
+  <meta property="og:title" content="Side threads">
+  <meta property="og:description" content="Prototyping a new chat UI for side conversations: highlight part of a reply and ask about it in a side thread, without derailing the main chat.">
+  <meta property="og:url" content="https://alexyim.org/projects/chat-asides/">
+  <meta property="og:image" content="https://alexyim.org/projects/chat-asides/aside.png">
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/style.css?v=4">
+</head>
+<body>
+  <main>
+    <header class="site-header">
+      <h1><a class="home-link" href="/">Alex Yim</a></h1>
+    </header>
+
+    <article class="project-page">
+      <h2 class="project-title">Side threads</h2>
+      <p class="project-tagline">Prototyping a new chat UI for side conversations: highlight part of a reply and ask about it in a side thread, without derailing the main chat.</p>
+      <p class="project-demo"><a href="demo/">Try the demo</a></p>
+
+      <figure class="screenshot">
+        <a href="aside.png"><img src="aside.png" width="2880" height="1800"
+             alt="The chat on the left, with the passage &quot;There is no garbage collector&quot; highlighted, and a side thread on the right explaining it"></a>
+      </figure>
+
+      <div class="project-body">
+        <p>In a chat with an assistant, a question about one passage of a reply takes over the conversation: the answer pushes the thread you were following out of view.</p>
+        <p>Side threads keep that question to the side. Highlight any passage in a reply, choose <strong>Chat about this selection</strong>, and a side panel opens with an explanation anchored to the highlight. The passage stays marked, so clicking it later reopens the side thread, and each side thread suggests follow-up questions of its own.</p>
+        <h3>The demo</h3>
+        <p>The demo plays a scripted conversation, Rust explained to a JavaScript developer, and streams each reply token by token. Passages with a prepared side thread have a dotted underline. Any other selection gets a general answer that quotes it.</p>
+        <h3>Stack</h3>
+        <p>React, TypeScript, Vite, and Tailwind CSS. There's no model and no backend: a stream simulator plays the scripted replies with a jittered delay, so the demo runs as static files.</p>
+      </div>
+    </article>
+  </main>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "e54d56c2ba0f45f4ae67112ad8e70a1b"}'></script>
+</body>
+</html>

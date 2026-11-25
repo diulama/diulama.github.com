@@ -177,6 +177,34 @@ p, h1, h2, h3, h4, h5, h6 {
   margin-top: 0.25rem;
 }
 
+.project-demo {
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+.project-tagline a,
+.project-demo a,
+.project-body a {
+  color: var(--color-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: all var(--duration) var(--timing);
+}
+
+.project-tagline a:hover,
+.project-demo a:hover,
+.project-body a:hover,
+.project-tagline a:focus-visible,
+.project-demo a:focus-visible,
+.project-body a:focus-visible {
+  opacity: 0.8;
+  text-decoration-thickness: 2px;
+}
+
+.screenshot + .project-body {
+  margin-top: calc(var(--space-1) * 1.25);
+}
+
 .project-hero {
   display: grid;
   grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
